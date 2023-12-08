@@ -1,11 +1,14 @@
 // HomeScreen.js
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
+
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Hola, esta es la pantalla de inicio</Text>
+      <Text style={styles.title}>¡Bienvenido a la Aplicación de Multas!</Text>
+      <Button title="Ver Menú" onPress={() => navigation.navigate('Menú')} />
+      {/* Agrega más botones u otros elementos según sea necesario */}
     </View>
   );
 }
@@ -15,5 +18,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 16,
   },
 });
