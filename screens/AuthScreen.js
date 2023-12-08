@@ -1,20 +1,20 @@
-// AuthScreen.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default function AuthScreen({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Aquí puedes agregar lógica de autenticación (por ejemplo, enviar una solicitud a tu API)
-    // En este ejemplo, simplemente navegarás a la pantalla Home
     navigation.navigate('Inicio');
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Iniciar Sesión</Text>
+      <Image
+        source={require('./img/logo.png')} 
+        style={styles.logo}
+      />
       <TextInput
         style={styles.input}
         placeholder="Nombre de usuario"
@@ -28,7 +28,12 @@ export default function AuthScreen({ navigation }) {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-      <Button title="Iniciar Sesión" onPress={handleLogin} />
+      <TouchableOpacity
+        style={styles.loginButton}
+        onPress={handleLogin}
+      >
+        <Text style={{ color: 'white' }}>Iniciar Sesión</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -39,8 +44,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  title: {
-    fontSize: 24,
+  logo: {
+    width: 120, 
+    height: 140, 
     marginBottom: 16,
   },
   input: {
@@ -50,5 +56,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 16,
     paddingHorizontal: 10,
+    borderRadius: 10, 
+  },
+  loginButton: {
+    backgroundColor: '#34375f', // Color de fondo azul oscuro
+    borderRadius: 10, // Bordes redondeados
+    padding: 15, // Espaciado interno
+    marginTop: 10, // Espaciado superior
   },
 });

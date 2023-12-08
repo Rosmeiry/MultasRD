@@ -23,8 +23,6 @@ const Stack = createStackNavigator();
 export default function App() {
   useEffect(() => {
     return () => {
-      // Este efecto se ejecuta cuando el componente App se desmonta,
-      // es decir, cuando la aplicación se cierra o navega fuera de la App
    
     };
   }, []);
@@ -32,7 +30,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Autenticación">
-        <Stack.Screen name="Autenticación" component={AuthScreen} />
+        <Stack.Screen name="ORC" component={AuthScreen} />
         <Stack.Screen name="Inicio" component={HomeScreen} />
         <Stack.Screen name="Menú" component={MenuScreen} />
         <Stack.Screen name="Tarifario" component={TarifarioScreen} />

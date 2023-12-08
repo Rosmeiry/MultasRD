@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Image } from 'react-native';
 
 const EstadoClimaScreen = () => {
-  const [search, setSearch] = useState('roma');
+  const [search, setSearch] = useState('santo domingo'); 
   const [values, setValues] = useState(null);
 
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${search}&lang=es&units=metric&appid=0edd1ecdd818c9ecaa72c0643e1668ee`;
@@ -32,7 +32,14 @@ const EstadoClimaScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Conoce tu clima: </Text>
+      <Text style={styles.title}>Conoce tu clima</Text>
+
+      <Image
+        source={require('./img/clima.png')}
+        style={styles.image}
+        resizeMode="contain"
+      />
+
       <View style={styles.row}>
         <TextInput
           style={styles.input}
@@ -64,17 +71,21 @@ const EstadoClimaScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#e8edf3',
+    backgroundColor: '#fafbfd',
+    paddingTop: 40,
   },
   title: {
     fontSize: 24,
     marginBottom: 16,
+    color: '#0c6951',
+    fontWeight: 'bold',
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 10,
   },
   input: {
     borderBottomWidth: 1,
@@ -86,6 +97,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textTransform: 'uppercase',
     textAlign: 'center',
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    marginBottom: 20,
   },
   card: {
     marginTop: 20,

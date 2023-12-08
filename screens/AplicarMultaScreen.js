@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, TextInput, StyleSheet, Alert, Platform } from 'react-native';
+import { View, Text, Button, TextInput, StyleSheet, Alert, Platform, Image } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const AplicarMultaScreen = () => {
@@ -19,13 +19,12 @@ const AplicarMultaScreen = () => {
   }, []);
 
   const obtenerMotivosMulta = async () => {
-    // Puedes mantener esta función si necesitas obtener motivos de una API
-    // Simulamos una respuesta del servidor
+    
     const response = await fetch('https://api.example.com/motivosMulta');
     const data = await response.json();
 
     if (response.ok) {
-      // setMotivosMulta(data); // No necesitas esto si permites escribir el motivo
+      
     } else {
       Alert.alert('Error', 'Error al obtener motivos de multa');
     }
@@ -60,6 +59,11 @@ const AplicarMultaScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Aplicar Multa</Text>
+
+      <Image
+        source={require('./img/multa.jpg')}
+        style={styles.image}
+      />
 
       <TextInput
         style={styles.input}
@@ -105,7 +109,7 @@ const AplicarMultaScreen = () => {
       />
 
       <View style={styles.buttonContainer}>
-        <Button title="Aplicar Multa" onPress={aplicarMulta} />
+        <Button title="Aplicar Multa" color="#fafbfd" onPress={aplicarMulta} />
       </View>
     </View>
   );
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#1a237e', // Azul oscuro
+    color: '#0c6951', // Azul oscuro
     marginBottom: 16,
   },
   input: {
@@ -139,15 +143,22 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#1a237e', // Azul oscuro
+    fontWeight: 'bold',
+    color: '#34375f', // Azul oscuro
     marginBottom: 10,
   },
   buttonContainer: {
-    marginTop: 70,
-    backgroundColor: '#1a237e', // Fondo azul oscuro
+    marginTop: 20,
+    backgroundColor: '#34375f', // Fondo azul oscuro
     borderRadius: 10, // Bordes redondeados
     overflow: 'hidden', // Para que los bordes redondeados se apliquen correctamente
+    padding: 6,
+  },
+  image: {
+    width: 180,
+    height: 120,
+    marginTop: 10, 
+    marginBottom: 25,
   },
 });
 

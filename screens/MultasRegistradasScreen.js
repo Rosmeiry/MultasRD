@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const MultasRegistradasScreen = () => {
   const [multasRegistradas, setMultasRegistradas] = useState([
@@ -39,13 +39,19 @@ const MultasRegistradasScreen = () => {
   );
 
   const handleMultaClick = (multa) => {
-    // Actualiza el estado para mostrar los detalles de la multa seleccionada
+    
     setDetallesMulta(multa);
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Multas Registradas</Text>
+
+      <Image
+        source={require('./img/registro.jpg')}
+        style={styles.image}
+      />
+
       <FlatList
         data={multasRegistradas}
         renderItem={renderItem}
@@ -72,12 +78,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#e8edf3',
     padding: 20,
+    alignItems: 'center', // Centra los elementos horizontalmente
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#1a237e',
+    color: '#0c6951',
     marginBottom: 16,
+  },
+  image: {
+    width: 330,
+    height: 200,
+    marginBottom: 30,
   },
   item: {
     marginBottom: 20,
@@ -93,14 +105,15 @@ const styles = StyleSheet.create({
   },
   detallesContainer: {
     marginTop: 10,
-    backgroundColor: '#f2f4f6',
+    backgroundColor: '#219677',
     borderRadius: 10,
     padding: 20,
+    marginBottom: 23,
   },
   detallesTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#1a237e',
+    color: '#21233d',
     marginBottom: 10,
   },
 });

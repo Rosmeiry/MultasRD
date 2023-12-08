@@ -3,19 +3,17 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 const MultasScreen = () => {
   const [multas, setMultas] = useState([
-    { id: '1', tipo: 'Exceso de velocidad', detalle: 'Circular a una velocidad superior a la permitida.' },
-    { id: '2', tipo: 'Estacionamiento indebido', detalle: 'Estacionar en lugares no permitidos.' },
-    { id: '3', tipo: 'Alcoholemia', detalle: 'Conducir bajo los efectos del alcohol.' },
-    { id: '4', tipo: 'Saltarse un semáforo', detalle: 'No respetar la señal de semáforo en rojo.' },
-    { id: '5', tipo: 'Saltarse un STOP', detalle: 'No detenerse en una señal de STOP.' },
-    { id: '6', tipo: 'Saltarse un ceda el paso', detalle: 'No ceder el paso cuando es obligatorio.' },
-    { id: '7', tipo: 'Uso del móvil', detalle: 'Utilizar el móvil mientras se conduce.' },
+    { id: '1', tipo: 'Exceso de velocidad', detalle: 'Circular a una velocidad superior a la permitida.', precio: '$100' },
+    { id: '2', tipo: 'Estacionamiento indebido', detalle: 'Estacionar en lugares no permitidos.', precio: '$50' },
+    { id: '3', tipo: 'Alcoholemia', detalle: 'Conducir bajo los efectos del alcohol.', precio: '$200' },
+    { id: '4', tipo: 'Saltarse un semáforo', detalle: 'No respetar la señal de semáforo en rojo.', precio: '$150' },
   ]);
 
   const renderMultaItem = ({ item }) => (
     <View style={styles.multaItem}>
       <Text style={styles.tipoMulta}>{item.tipo}</Text>
       <Text style={styles.detalleMulta}>{item.detalle}</Text>
+      <Text style={styles.precioMulta}>{item.precio}</Text>
     </View>
   );
 
@@ -35,15 +33,16 @@ const MultasScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start', 
     alignItems: 'center',
-    backgroundColor: '#e8edf3',
+    backgroundColor: '#fafbfd',
+    paddingTop: 30, 
   },
   title: {
     fontSize: 24,
     marginBottom: 16,
     fontWeight: 'bold',
-    color: '#17223b', // Azul oscuro
+    color: '#0c6951', // Azul oscuro
   },
   flatlistContainer: {
     alignItems: 'center',
@@ -66,12 +65,19 @@ const styles = StyleSheet.create({
   tipoMulta: {
     fontWeight: 'bold',
     fontSize: 18,
-    marginBottom: 10,
-    color: '#6b778d',
+    marginBottom: 10, // Reducido el margen inferior
+    color: '#34375f', // Azul oscuro
   },
   detalleMulta: {
     fontSize: 16,
     color: '#6b778d',
+    marginBottom: 20,
+  },
+  precioMulta: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#581d1f', // Azul oscuro
+    marginTop: 5, // Agregado margen superior
   },
 });
 

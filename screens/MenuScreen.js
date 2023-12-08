@@ -1,6 +1,5 @@
-// MenuScreen.js
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function MenuScreen({ navigation }) {
   const navigateTo = (screen) => {
@@ -9,16 +8,61 @@ export default function MenuScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Menú Principal</Text>
-      <Button title="Tarifario de Multas" onPress={() => navigateTo('Tarifario')} />
-      <Button title="Consulta por Placa" onPress={() => navigateTo('ConsultaPlaca')} />
-      <Button title="Consulta por Licencia" onPress={() => navigateTo('ConsultaLicencia')} />
-      <Button title="Aplicar Multa" onPress={() => navigateTo('AplicarMulta')} />
-      <Button title="Multas Registradas" onPress={() => navigateTo('MultasRegistradas')} />
-      <Button title="Mapa de Multas" onPress={() => navigateTo('MapaMultas')} />
-      <Button title="Noticias" onPress={() => navigateTo('Noticias')} />
-      <Button title="Estado del Clima" onPress={() => navigateTo('EstadoClima')} />
-      <Button title="Horóscopo" onPress={() => navigateTo('Horoscopo')} />
+      <Text style={[styles.title, { marginTop: 40 }]}>Menú Principal</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigateTo('Tarifario')}
+      >
+        <Text style={styles.buttonText}>Tarifario de Multas</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigateTo('ConsultaPlaca')}
+      >
+        <Text style={styles.buttonText}>Consulta por Placa</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigateTo('ConsultaLicencia')}
+      >
+        <Text style={styles.buttonText}>Consulta por Licencia</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigateTo('AplicarMulta')}
+      >
+        <Text style={styles.buttonText}>Aplicar Multa</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigateTo('MultasRegistradas')}
+      >
+        <Text style={styles.buttonText}>Multas Registradas</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigateTo('MapaMultas')}
+      >
+        <Text style={styles.buttonText}>Mapa de Multas</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigateTo('Noticias')}
+      >
+        <Text style={styles.buttonText}>Noticias</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigateTo('EstadoClima')}
+      >
+        <Text style={styles.buttonText}>Estado del Clima</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigateTo('Horoscopo')}
+      >
+        <Text style={styles.buttonText}>Horóscopo</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -26,11 +70,28 @@ export default function MenuScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
+    padding: 16,
   },
   title: {
     fontSize: 24,
-    marginBottom: 16,
+    fontWeight: 'bold',
+    color: '#0c6951', // Azul oscuro
+    marginBottom: 30,
+  },
+  button: {
+    backgroundColor: '#34375f', // Azul oscuro
+    marginBottom: 15,
+    padding: 10,
+    borderRadius: 5,
+    width: '70%',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });

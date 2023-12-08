@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, Button, StyleSheet, Alert, Image } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
 const ConsultaPlacaScreen = () => {
@@ -9,7 +9,7 @@ const ConsultaPlacaScreen = () => {
   const vehiculos = {
     PLACA1: { marca: 'TOYOTA', modelo: 'Toyota AE86' },
     PLACA2: { marca: 'CORVETTE', modelo: 'Z06 2023' },
-    // Agrega más vehículos según tus necesidades
+    
   };
 
   const consultarPlaca = () => {
@@ -26,6 +26,11 @@ const ConsultaPlacaScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Consulta de Vehículo por Placa</Text>
 
+      <Image
+        source={require('./img/placa.png')} 
+        style={styles.placaImage}
+      />
+
       <Picker
         selectedValue={placa}
         style={styles.picker}
@@ -34,12 +39,11 @@ const ConsultaPlacaScreen = () => {
         <Picker.Item label="Seleccione una placa" value="" />
         <Picker.Item label="ABC123" value="PLACA1" />
         <Picker.Item label="XBZ456" value="PLACA2" />
-        {/* Agrega más placas según tus necesidades */}
+        
       </Picker>
 
       <View style={styles.buttonContainer}>
-        <Button title="Consultar" onPress={consultarPlaca} 
-        color="#ffffff"/>
+        <Button title="Consultar" onPress={consultarPlaca} color="#ffffff" />
       </View>
 
       {detalleVehiculo && (
@@ -47,7 +51,7 @@ const ConsultaPlacaScreen = () => {
           <Text style={styles.detail}>Detalles del vehículo:</Text>
           <Text style={styles.detail}>Marca: {detalleVehiculo.marca}</Text>
           <Text style={styles.detail}>Modelo: {detalleVehiculo.modelo}</Text>
-          {/* Agrega más campos según tus necesidades */}
+         
         </View>
       )}
     </View>
@@ -57,31 +61,37 @@ const ConsultaPlacaScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start', 
     alignItems: 'center',
-    backgroundColor: '#e8edf3',
+    backgroundColor: '#fafbfd',
     padding: 20,
+    paddingTop: 40, 
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#1a237e', // Azul oscuro
-    marginBottom: 16,
+    color: '#0c6951',
+    marginBottom: 25,
+  },
+  placaImage: {
+    width: 200,
+    height: 120,
+    marginTop: 5,
   },
   picker: {
     height: 50,
     width: '100%',
-    marginBottom: 20,
+    marginBottom: 140,
   },
   buttonContainer: {
-    marginTop: 110,
-    backgroundColor: '#1a237e', // Fondo azul oscuro
+    marginTop: 20,
+    backgroundColor: '#34375f', // Fondo azul oscuro
     borderRadius: 10, // Bordes redondeados
     overflow: 'hidden',
-    
+    padding: 8,
   },
   card: {
-    marginTop: 20,
+    marginTop: 25,
     alignItems: 'center',
     backgroundColor: '#f2f4f6',
     borderRadius: 20,

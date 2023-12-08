@@ -22,7 +22,34 @@ const MapaMultasScreen = () => {
       longitud: -118.2437,
       detalles: 'Estacionamiento indebido',
     },
-    // Agrega más multas según sea necesario
+    {
+      id: '3',
+      nombre: 'Carlos González',
+      tipoVehiculo: 'Automóvil',
+      fecha: '2023-12-17',
+      latitud: 38.9072,
+      longitud: -77.0370,
+      detalles: 'Violación de semáforo',
+    },
+    {
+      id: '4',
+      nombre: 'Laura Martínez',
+      tipoVehiculo: 'Motocicleta',
+      fecha: '2023-12-18',
+      latitud: 40.7128,
+      longitud: -74.0060,
+      detalles: 'Estacionamiento en zona prohibida',
+    },
+    {
+      id: '5',
+      nombre: 'Roberto Sánchez',
+      tipoVehiculo: 'Automóvil',
+      fecha: '2023-12-19',
+      latitud: 41.8781,
+      longitud: -87.6298,
+      detalles: 'Exceso de velocidad',
+    },
+    
   ]);
 
   const [selectedMulta, setSelectedMulta] = useState(null);
@@ -33,11 +60,22 @@ const MapaMultasScreen = () => {
 
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} initialRegion={{ latitude: 37.7749, longitude: -122.4194, latitudeDelta: 0.05, longitudeDelta: 0.05 }}>
+      <MapView
+        style={styles.map}
+        initialRegion={{
+          latitude: 37.7749,
+          longitude: -122.4194,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
+        }}
+      >
         {multasRegistradas.map((multa) => (
           <Marker
             key={multa.id}
-            coordinate={{ latitude: multa.latitud, longitude: multa.longitud }}
+            coordinate={{
+              latitude: multa.latitud,
+              longitude: multa.longitud,
+            }}
             onPress={() => handleMarkerPress(multa)}
           >
             <Callout>
@@ -47,7 +85,7 @@ const MapaMultasScreen = () => {
         ))}
       </MapView>
 
-      {/* Muestra los detalles de la multa seleccionada */}
+  
       {selectedMulta && (
         <View style={styles.detailsContainer}>
           <Text style={styles.detailsTitle}>Detalles de la Multa</Text>
@@ -71,18 +109,18 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     position: 'absolute',
-    bottom: 0,
+    top: 20, 
     left: 0,
     right: 0,
     backgroundColor: 'white',
     padding: 16,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderRadius: 20, 
   },
   detailsTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: 10,
+    color: '#34375f',
   },
 });
 

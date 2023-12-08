@@ -5,14 +5,14 @@ const NoticiasScreen = () => {
   const [noticias, setNoticias] = useState([]);
 
   useEffect(() => {
-    // Llamada a la API de News para obtener noticias
+    
     const obtenerNoticias = async () => {
       try {
-        const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=9a650729bb1442d09db0b6c5f41962e2');
+        const response = await fetch('https://remolacha.net/wp-json/wp/v2/posts?search=digeset');
         const data = await response.json();
 
         if (response.ok) {
-          setNoticias(data.articles); // Acceder a la propiedad articles
+          setNoticias(data); 
         } else {
           console.error('Error al obtener noticias');
         }
@@ -21,7 +21,7 @@ const NoticiasScreen = () => {
       }
     };
 
-    // Llamar a la función para obtener noticias al cargar la pantalla
+   
     obtenerNoticias();
   }, []);
 
@@ -30,11 +30,11 @@ const NoticiasScreen = () => {
       <Text style={styles.title}>Noticias Relevantes</Text>
       <FlatList
         data={noticias}
-        keyExtractor={(item) => item.title} // Usar el título como identificador único
+        keyExtractor={(item) => item.id.toString()} 
         renderItem={({ item }) => (
           <View style={styles.noticiaContainer}>
-            <Text style={styles.noticiaTitulo}>{item.title}</Text>
-            <Text style={styles.noticiaContenido}>{item.description}</Text>
+            <Text style={styles.noticiaTitulo}>{item.title.rendered}</Text>
+            <Text style={styles.noticiaContenido}>{item.excerpt.rendered}</Text>
           </View>
         )}
       />
@@ -50,18 +50,30 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 16,
+    marginBottom: 30,
+    color: '#0c6951',
+    textAlign: 'center',
   },
   noticiaContainer: {
     marginBottom: 16,
+    padding: 16,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    elevation: 3, // Sombra en Android
+    shadowColor: '#000', // Sombra en iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
   noticiaTitulo: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 8,
+    color: '#34375f',
   },
   noticiaContenido: {
     fontSize: 16,
+    color: '#555',
   },
 });
 
