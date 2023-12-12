@@ -1,9 +1,9 @@
 # Multas RD - Soluciones Avanzadas para Agentes de Tránsito 🚦
 
-Creado por: 
+Creado por:   
 Rosmeiry Garabito / 2021-0587  
-Oneylis M / 2021-0357
-Cesar Castillo / 2021-0672
+Oneylis M / 2021-0357  
+Cesar Castillo / 2021-0672  
 
 El Archivo que dice MultasRD.pdf es el cual contiene el link del video. 
 
