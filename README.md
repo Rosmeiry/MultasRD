@@ -1,5 +1,12 @@
 # Multas RD - Soluciones Avanzadas para Agentes de Tránsito 🚦
 
+Creado por: 
+Rosmeiry Garabito / 2021-0587
+Oneylis M / 2021-0357
+Cesar Castillo / 2021-0672
+
+El Archivo que dice MultasRD.pdf es el cual contiene el link del video. 
+
 Bienvenido a Multas RD, la aplicación móvil que redefine la experiencia de los agentes de tránsito de la Dirección General de Seguridad de Tránsito y Transporte Terrestre (DIGESET). Desarrollada con tecnologías de vanguardia como React y Expo, nuestra aplicación ofrece un conjunto completo de herramientas diseñadas para mejorar la eficiencia y el desempeño en el cumplimiento de normativas de tránsito y seguridad vial.
 
 ## Características Destacadas 🌟
